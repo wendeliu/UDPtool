@@ -11,8 +11,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-find_package(Qt6 REQUIRED COMPONENTS Network)
-
+find_package(Qt6 REQUIRED COMPONENTS Network Charts)
+#find_package(Qt6 REQUIRED COMPONENTS Charts)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -46,6 +46,8 @@ endif()
 
 target_link_libraries(netool PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(netool PRIVATE Qt6::Network)
+target_link_libraries(netool PRIVATE Qt6::Charts)
+
 
 set_target_properties(netool PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
