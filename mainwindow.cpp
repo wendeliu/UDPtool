@@ -110,3 +110,25 @@ void MainWindow::on_stop_log_clicked()
     sock.writeDatagram(cmd.toLocal8Bit().constData(),len,ip,port);
 }
 
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    QHostAddress ip;
+    ip=QHostAddress(this->ui->plainTextEdit->toPlainText());
+    QString cmd="KEY,LEFT_KEY,1,KEYEND";
+    int len=cmd.length();
+    int port=this->ui->plainTextEdit_2->toPlainText().toInt()+2;
+    sock.writeDatagram(cmd.toLocal8Bit().constData(),len,ip,port);
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    QHostAddress ip;
+    ip=QHostAddress(this->ui->plainTextEdit->toPlainText());
+    QString cmd="KEY,RIGHT_KEY,1,KEYEND";
+    int len=cmd.length();
+    int port=this->ui->plainTextEdit_2->toPlainText().toInt()+2;
+    sock.writeDatagram(cmd.toLocal8Bit().constData(),len,ip,port);
+}
+
